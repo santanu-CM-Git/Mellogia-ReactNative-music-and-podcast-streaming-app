@@ -22,7 +22,7 @@ function App() {
         <StatusBar
           translucent={false}
           backgroundColor="#000"
-          barStyle={Platform.OS === 'ios' ? 'light-content' : 'light-content'}
+          barStyle={Platform.OS === 'ios' ? 'dark-content' : 'light-content'}
         />
         <OfflineNotice />
         <AuthProvider>
