@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { rf, hp } from '../../utils/responsive';
 
 const HomeScreen = () => {
   return (
@@ -18,13 +19,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
   },
   title: {
-    fontSize: 32,
+    fontSize: rf(4),
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 10,
+    marginBottom: hp(1.2),
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: rf(2.25),
     color: '#b3b3b3',
   },
 });

@@ -6,3 +6,6 @@ export const forwordImg = require("../assets/images/forword.png");
 export const YellowTck = require("../assets/images/YellowTick.png");
 export const eyeIcon = require("../assets/images/eye.png");
 export const splashIcon = require("../assets/images/splash-icon.png");
+export const loginBanner = require("../assets/images/login-banner.png");
+export const logoIcon = require("../assets/images/icon.png");
+export const googleIcon = require("../assets/images/google.png");

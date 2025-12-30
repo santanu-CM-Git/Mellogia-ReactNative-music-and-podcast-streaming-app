@@ -1,17 +1,17 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { AuthContext } from '../../context/AuthContext';
+import { useNavigation } from '@react-navigation/native';
+import { rf } from '../../utils/responsive';
 
 const SplashScreen = () => {
-  const { setSplashComplete } = useContext(AuthContext);
+  const navigation = useNavigation();
 
   useEffect(() => {
-    // Mark splash as complete after 2 seconds
-    // This will trigger AppNav to show the main app
+    // Navigate to sign up screen after 2 seconds
     setTimeout(() => {
-      setSplashComplete(true);
+      navigation.navigate('SignUp');
     }, 2000);
-  }, [setSplashComplete]);
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
   },
   title: {
-    fontSize: 48,
+    fontSize: rf(6),
     fontWeight: 'bold',
     color: '#1DB954',
   },

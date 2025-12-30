@@ -4,15 +4,13 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
   Animated,
   Vibration,
   Platform,
 } from 'react-native';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
-const { width, height } = Dimensions.get('window');
+import { wp, hp, rf, moderateScale, screenWidth, screenHeight } from '../utils/responsive';
 
 const NotificationPopup = ({ 
   isVisible, 
@@ -20,7 +18,7 @@ const NotificationPopup = ({
   onClose, 
   onAction 
 }) => {
-  const slideAnim = useRef(new Animated.Value(-width)).current;
+  const slideAnim = useRef(new Animated.Value(-screenWidth)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -52,7 +50,7 @@ const NotificationPopup = ({
       // Slide out animation
       Animated.parallel([
         Animated.timing(slideAnim, {
-          toValue: -width,
+          toValue: -screenWidth,
           duration: 300,
           useNativeDriver: true,
         }),
@@ -162,104 +160,104 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    margin: 16,
-    marginTop: Math.max(60, height * 0.08),
-    width: Math.min(width - 32, 400),
+    borderRadius: moderateScale(16),
+    margin: wp(4),
+    marginTop: Math.max(hp(7.5), screenHeight * 0.08),
+    width: Math.min(screenWidth - wp(8), moderateScale(400)),
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4,
+      height: moderateScale(4),
     },
     shadowOpacity: 0.3,
-    shadowRadius: 8,
+    shadowRadius: moderateScale(8),
     ...Platform.select({
       android: {
         elevation: 5, // Only for Android
       },
       ios: {
         shadowColor: '#000', // Only for iOS
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: { width: 0, height: moderateScale(2) },
         shadowOpacity: 0.3,
-        shadowRadius: 5,
+        shadowRadius: moderateScale(5),
       },
     }),
-    borderWidth: 1,
+    borderWidth: moderateScale(1),
     borderColor: '#F0F0F0',
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16,
-    paddingBottom: 12,
+    padding: wp(4),
+    paddingBottom: hp(1.5),
   },
   iconContainer: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: moderateScale(44),
+    height: moderateScale(44),
+    borderRadius: moderateScale(22),
     backgroundColor: '#F0F8FF',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 12,
-    borderWidth: 1,
+    marginRight: wp(3),
+    borderWidth: moderateScale(1),
     borderColor: '#E6F3FF',
   },
   titleContainer: {
     flex: 1,
-    marginRight: 8,
+    marginRight: wp(2),
   },
   title: {
-    fontSize: 16,
+    fontSize: rf(2),
     fontWeight: '600',
     color: '#000000',
-    marginBottom: 2,
+    marginBottom: hp(0.25),
   },
   subtitle: {
-    fontSize: 14,
+    fontSize: rf(1.75),
     color: '#8E8E93',
-    lineHeight: 18,
+    lineHeight: rf(2.25),
   },
   closeButton: {
-    width: 24,
-    height: 24,
+    width: moderateScale(24),
+    height: moderateScale(24),
     justifyContent: 'center',
     alignItems: 'center',
   },
   actions: {
     flexDirection: 'row',
-    paddingHorizontal: 16,
-    paddingBottom: 16,
-    gap: 8,
+    paddingHorizontal: wp(4),
+    paddingBottom: hp(2),
+    gap: wp(2),
   },
   actionButton: {
     backgroundColor: '#FF455C',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
-    minWidth: 70,
+    paddingHorizontal: wp(5),
+    paddingVertical: hp(1.2),
+    borderRadius: moderateScale(10),
+    minWidth: moderateScale(70),
     alignItems: 'center',
     shadowColor: '#FF455C',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: moderateScale(2),
     },
     shadowOpacity: 0.3,
-    shadowRadius: 4,
+    shadowRadius: moderateScale(4),
     ...Platform.select({
       android: {
         elevation: 5, // Only for Android
       },
       ios: {
         shadowColor: '#000', // Only for iOS
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: { width: 0, height: moderateScale(2) },
         shadowOpacity: 0.3,
-        shadowRadius: 5,
+        shadowRadius: moderateScale(5),
       },
     }),
   },
   actionText: {
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: rf(1.75),
     fontWeight: '500',
   },
 });
