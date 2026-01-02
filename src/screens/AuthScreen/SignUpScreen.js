@@ -139,8 +139,8 @@ const styles = StyleSheet.create({
   },
   logoImage: {
     width: wp(50),
-    height: hp(6),
-    marginBottom: hp(2.5),
+    height: hp(5),
+    marginBottom: hp(2.7),
   },
   headingContainer: {
     alignItems: 'center',
