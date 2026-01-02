@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { loginBanner, logoIcon, googleIcon } from '../../utils/Images';
 import CustomButton from '../../components/CustomButton';
+import GradientText from '../../components/GradientText';
 import { wp, hp, rf, moderateScale } from '../../utils/responsive';
 
 const SignUpScreen = ({ navigation }) => {
@@ -51,9 +52,14 @@ const SignUpScreen = ({ navigation }) => {
             resizeMode="contain"
           />
 
-          <Text style={styles.heading}>
-            Sign up to <Text style={styles.gradientText}>start listening</Text>
-          </Text>
+          <View style={styles.headingContainer}>
+            <Text style={styles.heading}>Sign up to</Text>
+            <GradientText 
+              colors={['#FFFFFF','#AD59E9', '#B567A7']}
+              style={styles.gradientTextStyle}>
+              start listening
+            </GradientText>
+          </View>
         </View>
 
         {/* Form Section */}
@@ -76,7 +82,7 @@ const SignUpScreen = ({ navigation }) => {
             label="Continue"
             onPress={handleContinue}
             buttonColor="gradient"
-            gradientColors={['#9333EA', '#EC4899']}
+            gradientColors={['#AD59E9', '#F14E85']}
           />
 
           <View style={styles.separator}>
@@ -113,7 +119,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   bannerContainer: {
-    height: hp(35),
+    height: hp(33),
     position: 'relative',
     overflow: 'hidden',
   },
@@ -136,15 +142,21 @@ const styles = StyleSheet.create({
     height: hp(6),
     marginBottom: hp(2.5),
   },
+  headingContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   heading: {
     fontSize: rf(3.5),
     color: '#FFF',
-    textAlign: 'center',
     fontFamily: 'Poppins-Regular',
+    lineHeight: rf(4.2),
+    textAlign: 'center',
   },
-  gradientText: {
+  gradientTextStyle: {
+    fontSize: rf(3.5),
     fontFamily: 'Poppins-Bold',
-    color: '#EC4899', // Using the gradient end color as a solid color
+    lineHeight: rf(4.2),
   },
   formSection: {
     paddingHorizontal: wp(6),
@@ -160,14 +172,15 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Medium',
   },
   input: {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#1A131C',
     borderRadius: moderateScale(12),
     paddingVertical: hp(1.5),
     paddingHorizontal: wp(4),
     color: '#FFF',
     fontSize: rf(2),
     fontFamily: 'Poppins-Regular',
-    borderWidth: 0,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.25)',
     height: hp(6),
   },
   separator: {
