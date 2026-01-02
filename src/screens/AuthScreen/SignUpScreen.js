@@ -9,6 +9,7 @@ import {
   Platform,
   Image,
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import { loginBanner, logoIcon, googleIcon } from '../../utils/Images';
 import CustomButton from '../../components/CustomButton';
 import GradientText from '../../components/GradientText';
@@ -41,7 +42,11 @@ const SignUpScreen = ({ navigation }) => {
             style={styles.bannerImage}
             resizeMode="cover"
           />
-          <View style={styles.darkOverlay} />
+          <LinearGradient
+            colors={['rgba(14, 12, 14, 0)', 'rgba(14, 12, 14, 0.33)', 'rgba(14, 12, 14, 1)']}
+            locations={[0, 0.33, 1]}
+            style={styles.darkOverlay}
+          />
         </View>
 
         {/* Logo Section */}
@@ -130,7 +135,6 @@ const styles = StyleSheet.create({
   },
   darkOverlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
   logoSection: {
     alignItems: 'center',
